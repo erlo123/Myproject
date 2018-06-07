@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+
+		<!-- Title -->
+		<title>Blog</title>
+
+		<!-- Google fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Dosis:100,400,600,700" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,600,700" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+
+		<!-- Font awesome Core CSS -->
+		<link rel='stylesheet' href='http://d33wubrfki0l68.cloudfront.net/bundles/511631ef05b56b32372527eb9bf6738b378cdf50.css'/>
+
+		<!-- bootstrap css -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+		<!-- Custom style CSS -->
+		<link rel='stylesheet' href='http://d33wubrfki0l68.cloudfront.net/css/1ab8a2813b828b5ed3e1d89dadd9fa20a0a8c1fb/css/style.css'/>
+
+	</head>
+	<body class="main-blog">
+
+		<!-- Navigation start -->
+    <nav class="navbar navbar-custom tt-default-nav" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="/portfolio/">Home</a>
+          </div>
+        </div>
+    </nav>
+    <!-- Navigation end -->
+
+		<!-- ====== posts ======  -->
+		<section class="posts section-padding">
+			<div class="container">
+				<div class="row">
+					<div class="main-post col-sm-9">
+						<ul>
+						{% for title in latest_title_list %}
+							<div class="col-md-12">
+								<div class="post">
+									<div class="s-post-title">
+										<h5>{{ title.title_text }}</h5>
+										<span><i class="fa fa-clock-o" aria-hidden="true"></i>{{ title.pub_date }}</span>
+									</div>
+										{% if title.image.url != None %}
+											<div class="img-post">
+												<img src="{{ title.image.url }}" alt="image">
+											</div>
+										{% endif %}
+									<div class="post-content">
+										<p>{{ title.head_text }}</p>
+										<a href='{{ title.id }}' class='button btn-bord-dark'> Czytaj...</a>
+									</div>
+								</div>
+							</div>
+						{% endfor %}
+						</ul>
+		<!-- ====== End posts ======  -->
+
+     <!--====== js ======-->
+		<!-- jQuery -->
+		<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+		<script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js"></script>
+
+	  	<!-- bootstrap -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+		<!-- singlePageNav -->
+		<script src='http://d33wubrfki0l68.cloudfront.net/js/ebce443b62587282a6a7a525fd45a44cd05f49ef/layout-1/js/jquery.singlepagenav.min.js'></script>
+
+      	<!-- custom js -->
+      	<script src='http://d33wubrfki0l68.cloudfront.net/js/cc5e4613fb169a4ee406a71e6218bac9ada831de/js/custom.js'></script>
+
+	</body>
+</html>

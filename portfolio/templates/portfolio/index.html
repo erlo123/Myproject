@@ -1,0 +1,223 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<!-- Title -->
+		<title>Eryk Ignatowski</title>
+
+		<!-- Google fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Dosis:100,400,600,700" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,600,700" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+
+		<!-- Font awesome Core CSS -->
+		<link rel='stylesheet' href='http://d33wubrfki0l68.cloudfront.net/bundles/511631ef05b56b32372527eb9bf6738b378cdf50.css'/>
+
+		<!-- bootstrap css -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+		<!-- Custom style CSS -->
+		<link rel='stylesheet' href='http://d33wubrfki0l68.cloudfront.net/css/1ab8a2813b828b5ed3e1d89dadd9fa20a0a8c1fb/css/style.css'/>
+	</head>
+	<body>
+		<!-- ====== Navgition ======  -->
+		<nav class="navbar local-nav navbar-custom tt-default-nav">
+		  <div class="container">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+				<div class="navbar-brand">Eryk Ignatowski</div>
+		    </div>
+
+			  <!-- links -->
+		      <ul class="nav navbar-nav navbar-right">
+		        <li><a href="index.html#about">O MNIE</a></li>
+		        <li><a href="index.html#portfolio">Portfolio</a></li>
+		        <li><a href="index.html#blog">Blog</a></li>
+		      </ul>
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container -->
+		</nav>
+		<!-- ====== End Navgition ======  -->
+
+		<!-- ====== Header ======  -->
+		<header id="home" class="sub-header">
+			<div class="header-overlay">
+				<img src="{% static "portfolio/img/background.jpg" %}" alt="image"/>
+			</div>
+		</header>
+		<!-- ====== End Header ======  -->
+
+		<section id="about" class="hero section-padding section-bord">
+			<div class="container">
+				<div class="row">
+					<!-- hero-item -->
+					<div class="section-head text-center">
+						<h5 class="tit">O MNIE</h5>
+					</div>
+					<div class="hero-block mt-100">
+
+						<!-- accordion -->
+						<div class="col-md-6">
+							<div class="accordion">
+								<div class="accordion-icon">
+									<img src="{% static 'portfolio/img/profile.JPG' %}" alt="image2"height="42" width="42"/>
+								</div>
+							</div>
+						</div>
+
+						<!-- progress -->
+						<div class="col-md-offset-1 col-md-5">
+							<h5>Eryk Ignatowski</h5>
+								<h6> wyksztalcenie</h6>
+									<p> 6 Liceum Ogolnoksztalcace im. Zygmunta Augusta w Bialymstoku</p>
+								<h6>Programowanie</h6>
+									<p>-Python</p>
+									<p>-Django</p>
+									<p>-C++</p>
+								<h6>Bazy Danych</h6>
+									<p>-SQLite3</p>
+									<p>-PostgreSQL</p>
+								<h6>Inne</h6>
+									<p>-Podstawowa znajomosc HTML</p>
+									<p>-Podstawowa znajomosc CSS</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!--====== Portfolio ======-->
+		<section id="portfolio" class="portfolio main section-padding section-bord">
+			<div class="container">
+				<!-- section header -->
+				<div class="section-head text-center">
+					<h5 class="tit">PORTFOLIO</h5>
+				</div>
+				<div class="row">
+
+					<!-- gallery -->
+					<div class="gallery text-center">
+						<!-- gallery item -->
+						<ul>
+							{% for pic in latest_pics_list %}
+							<div class="col-md-4 item-img web">
+								<li><a href="/portfolio/{{ pic.id }}/"><img src="{{ pic.pics.url }}" alt="{{ pic.title }}"/></li>
+								<div class="item-img-overlay">
+									<span class="v"></span>
+									<span class="x"></span>
+								</div>
+								</a>
+							</div>
+							{% endfor %}
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--====== End Portfolio ======-->i
+
+
+		<!--====== Blog ======-->
+		<section id="blog" class="blog">
+			<div class="container">
+
+				<!-- section header -->
+				<div class="section-head ">
+					<h5 class="tit middle">Najnowsze wiadomosc</h5>
+					<a href="blog"><p class="pull-right">Wszystkie Posty >></p></a>
+				</div>
+
+				<!-- posts -->
+				<div class="row">
+					{% for blog in latest_blog_list %}
+					<div class="col-md-4">
+						<div class="s-post">
+							{% if blog.image.url != None %}
+								<div class="post-img">
+									<img src="{{ blog.image.url }}" alt="image">
+								</div>
+							{% endif %}
+							<div class="s-post-content">
+								<h6>{{ blog.title_text }}</h6>
+								<span>{{ blog.pub_date }}</span>
+								<p>{{ blog.head_text }}</p>
+								<a href='blog/{{ blog.id }}' class='button btn-bord-dark'><span>Czytaj..</span></a>
+							</div>
+						</div>
+					</div>
+					{% endfor %}
+
+				</div>
+			</div>
+		</section>
+
+		<!--====== End Blog ======-->
+					<div class="section-head text-center">
+						<a href="email"><h5 class="tit">KONTAKT</h5></a>
+					</div>
+
+		<!--====== Footer ======-->
+		<footer>
+
+			<!-- main footer -->
+			<div class="main-footer">
+				<div class="container">
+					<div class="row">
+
+						<!-- info items -->
+						<div class="col-md-4">
+							<div class="info-item">
+								<div class="icon">
+									<span class="icon-map-pin"></span>
+								</div>
+								<div class="info-content">
+									<h6>Adres</h6>
+									<h5>Bialystok</h5>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-4">
+							<div class="info-item">
+								<div class="icon">
+									<span class="icon-phone"></span>
+								</div>
+								<div class="info-content">
+									<h6>Numer</h6>
+									<h5>004879*****11</h5>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-4">
+							<div class="info-item">
+								<div class="icon">
+									<span class="icon-envelope"></span>
+								</div>
+								<div class="info-content">
+									<h6>E-mail</h6>
+									<h5>er*****w@poczta.fm</h5>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<!--====== js ======-->
+		<!-- jQuery -->
+		<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+		<script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js"></script>
+
+	  	<!-- bootstrap -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+		<!-- singlePageNav -->
+		<script src='http://d33wubrfki0l68.cloudfront.net/js/ebce443b62587282a6a7a525fd45a44cd05f49ef/layout-1/js/jquery.singlepagenav.min.js'></script>
+
+      	<!-- custom js -->
+      	<script src='http://d33wubrfki0l68.cloudfront.net/js/cc5e4613fb169a4ee406a71e6218bac9ada831de/js/custom.js'></script>
+
+	</body>
+</html>

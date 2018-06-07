@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Komentarz</title>
+
+		<!-- Google fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Dosis:100,400,600,700" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,600,700" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+
+		<!-- Font awesome Core CSS -->
+		<link rel='stylesheet' href='http://d33wubrfki0l68.cloudfront.net/bundles/511631ef05b56b32372527eb9bf6738b378cdf50.css'/>
+
+
+		<!-- bootstrap css -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+		<!-- Custom style CSS -->{% load static %}
+		<link rel='stylesheet' href='http://d33wubrfki0l68.cloudfront.net/css/1ab8a2813b828b5ed3e1d89dadd9fa20a0a8c1fb/css/style.css'/>
+
+</head>
+<body>
+
+
+<center>
+<div class="col-md-12">
+    <div class="com-form post">
+        <div class="col-md-6 mb-30">
+            <h1>Dodaj Nowy Komentarz</h1>
+            <form method="POST" class="center">
+                {% csrf_token %}
+                {{ form.as_p }}
+            <button type="submit" class="button">Dodaj komentarz</button>
+            </form>
+        </div>
+    </div>
+</div>
+</center>
+</body>
+</html>
