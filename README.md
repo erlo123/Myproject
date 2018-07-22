@@ -10,5 +10,4 @@ Bootstrap3
 
 
 
-Projekt w ktorym backend zostal w całkowicie postawiony przezemnie.
 
